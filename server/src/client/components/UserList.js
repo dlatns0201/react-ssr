@@ -19,5 +19,9 @@ const UserList = () => {
   )
 }
 
+UserList.loadData = () => {
+  console.log("I'm in server");
+}
+
 export default UserList;
 
