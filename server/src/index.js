@@ -1,3 +1,4 @@
+import 'babel-polyfill';
 import express from 'express';
 import createStore from './helpers/createStore';
 import renderer from './helpers/renderer';
