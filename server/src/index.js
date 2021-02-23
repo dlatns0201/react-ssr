@@ -1,4 +1,5 @@
 import express from 'express';
+import createStore from './helpers/createStore';
 import renderer from './helpers/renderer';
 
 const app = express();
@@ -6,7 +7,9 @@ const app = express();
 app.use(express.static('public'));
 
 app.get('*', (req, res) => {
-  res.send(renderer(req));
+  const store = createStore();
+
+  res.send(renderer(req, store));
 })
 
 app.listen(3000, () => {
