@@ -2,6 +2,7 @@ import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import { renderRoutes } from 'react-router-config';
 import { BrowserRouter } from 'react-router-dom';
 import createStore from '../helpers/createStore';
 
@@ -16,7 +17,7 @@ const store = createStore();
 ReactDOM.hydrate(
   <Provider store={store}>
     <BrowserRouter>
-      <Routes />
+      {renderRoutes(Routes)}
     </BrowserRouter>
   </Provider>,
   document.getElementById('root')
