@@ -12,7 +12,7 @@ const Header = ({ auth }) => {
     <div>
       <Link to='/'>React SSR</Link>
       <div>
-        <Link to='/uesrs'>Users</Link>
+        <Link to='/users'>Users</Link>
         <Link to='/admins'>Admins</Link>
         {authButton}
       </div>
