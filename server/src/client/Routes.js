@@ -1,7 +1,8 @@
 import App from './App';
+import AdminsPage from './pages/Admins';
 import HomePage from './pages/Home';
 import NotFoundPage from './pages/NotFound';
-import UserPage from './pages/User';
+import UsersPage from './pages/Users';
 
 const Routes = [
   {
@@ -14,7 +15,11 @@ const Routes = [
       },
       {
         path: '/users',
-        component: UserPage
+        component: UsersPage
+      },
+      {
+        path: '/admins',
+        component: AdminsPage
       },
       {
         component: NotFoundPage
