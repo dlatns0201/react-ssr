@@ -20,6 +20,9 @@ export default (req, store) => {
       <head></head>
       <body>
         <div id="root">${content}</div>
+        <script>
+          window.__INITIAL_STATE__ = ${JSON.stringify(store.getState())}
+        </script>
         <script src="bundle.js"></script>
       </body>
     </html>
