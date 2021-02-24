@@ -8,7 +8,7 @@ import renderer from './helpers/renderer';
 
 const app = express();
 
-app.use('/api', proxy('https://react-ssr-api.herokuapp.com', {
+app.use('/api', proxy('http://react-ssr-api.herokuapp.com', {
   proxyReqOptDecorator(opts) {
     opts.headers['x-forwarded-host'] = 'localhost:3000';
     return opts;
@@ -26,7 +26,7 @@ app.get('*', (req, res) => {
   Promise.all(promises).then(() => {
     res.send(renderer(req, store));
   })
-})
+});
 
 app.listen(3000, () => {
   console.log("Listening on port 3000");
