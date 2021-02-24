@@ -19,8 +19,8 @@ const UserList = () => {
   )
 }
 
-UserList.loadData = () => {
-  console.log("I'm in server");
+UserList.loadData = (store) => {
+  return store.dispatch(fetchUsers());
 }
 
 export default UserList;
