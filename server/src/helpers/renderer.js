@@ -6,6 +6,7 @@ import { renderRoutes } from "react-router-config";
 import serialize from 'serialize-javascript';
 
 import Routes from '../client/Routes';
+import { Helmet } from 'react-helmet';
 
 export default (req, store, context) => {
   const content = renderToString(
@@ -16,9 +17,14 @@ export default (req, store, context) => {
     </Provider>
   );
 
+  const helmet = Helmet.renderStatic();
+
   const html = `
     <html>
-      <head></head>
+      <head>
+        ${helmet.title.toString()}
+        ${helmet.meta.toString()}
+      </head>
       <body>
         <div id="root">${content}</div>
         <script>
