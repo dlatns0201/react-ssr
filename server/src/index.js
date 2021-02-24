@@ -19,14 +19,14 @@ app.use(express.static('public'));
 
 app.get('*', (req, res) => {
   const store = createStore(req);
-
   const promises = matchRoutes(Routes, req.path)
     .map(({route}) => route.component.loadData ? route.component.loadData(store) : null);
 
-  const context = {};
-  const content = renderer(req, store, context);
-
+    
   Promise.all(promises).then(() => {
+    const context = {};
+    const content = renderer(req, store, context);
+    
     if(context.status) {
       res.status(context.status);
     }
