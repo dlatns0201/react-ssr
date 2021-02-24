@@ -1,6 +1,6 @@
 import App from './App';
 import HomePage from './pages/Home';
-import UserPage from './pages/UserList';
+import UserPage from './pages/User';
 
 const Routes = [
   {

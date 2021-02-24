@@ -1,6 +1,6 @@
 import { FETCH_USERS } from "../actions";
 
-export default (state = [], action) => {
+function usersReducer (state = [], action) {
   switch(action.type) {
     case FETCH_USERS: {
       return action.payload.data;
@@ -10,3 +10,5 @@ export default (state = [], action) => {
     }
   }
 };
+
+export default usersReducer;

@@ -19,7 +19,7 @@ const UserPage = () => {
   )
 }
 
-UserPage.loadData = (store) => {
+UserPage.loadData = async (store) => {
   return store.dispatch(fetchUsers());
 }
 
