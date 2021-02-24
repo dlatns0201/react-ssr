@@ -4,23 +4,27 @@ import { fetchAdmins } from '../actions';
 import requireAuth from '../hocs/requireAuth';
 
 
-const AdminsPage = () => {
-  const dispatch = useDispatch();
-  const admins = useSelector(state => state.admins);
+const AdminsPage = requireAuth(
+  () => {
+    const dispatch = useDispatch();
+    const admins = useSelector(state => state.admins);
 
-  useEffect(() => {
-    dispatch(fetchAdmins());
-  }, []);
+    useEffect(() => {
+      dispatch(fetchAdmins());
+      if(!admins) {
+      }
+    }, []);
 
-  return (
-    <ul>
-      {admins.map(admin => <li key={admin.id}>{admin.name}</li>)}
-    </ul>
-  )
-};
+    return (
+      <ul>
+        {admins.map(admin => <li key={admin.id}>{admin.name}</li>)}
+      </ul>
+    )
+  }
+);
 
 AdminsPage.loadData = ({ dispatch }) => {
   return dispatch(fetchAdmins());
 }
 
-export default requireAuth(AdminsPage);
+export default AdminsPage;
