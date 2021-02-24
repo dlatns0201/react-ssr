@@ -1,16 +1,21 @@
-import React from 'react';
-import Home from './components/Home';
-import UserList from './components/UserList';
+import App from './App';
+import HomePage from './pages/Home';
+import UserPage from './pages/UserList';
 
 const Routes = [
   {
-    path: '/',
-    component: Home,
-    exact: true
-  },
-  {
-    path: '/users',
-    component: UserList
+    component: App,
+    routes: [
+      {
+        path: '/',
+        component: HomePage,
+        exact: true
+      },
+      {
+        path: '/users',
+        component: UserPage
+      }
+    ]
   }
 ]
 

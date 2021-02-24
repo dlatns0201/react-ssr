@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchUsers } from '../actions';
 
-const UserList = () => {
+const UserPage = () => {
   const dispatch = useDispatch();
   const users = useSelector(state => state.users);
 
@@ -19,9 +19,9 @@ const UserList = () => {
   )
 }
 
-UserList.loadData = (store) => {
+UserPage.loadData = (store) => {
   return store.dispatch(fetchUsers());
 }
 
-export default UserList;
+export default UserPage;
 
