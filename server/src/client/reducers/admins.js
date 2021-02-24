@@ -1,6 +1,6 @@
 import { FETCH_ADMINS } from "../actions";
 
-function adminsReducer (state = null, action) {
+function adminsReducer (state = [], action) {
   switch(action.type) {
     case FETCH_ADMINS: {
       return action.payload.data || null;
